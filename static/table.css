@@ -1,0 +1,58 @@
+table {
+    width: 100%;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+
+.container thead {
+    background-color: #111;
+  }
+  
+  .container th{
+    border: 1px solid white;
+    padding: 20px 20px;
+    color: white;
+  }
+  
+  .container td{
+    border: 1px solid black;
+    text-align: center;
+    padding: 10px 20px;
+    color: #111;
+    background-color: beige;
+  }
+
+  .dropbtn {
+    background-color: yellow;
+    color: black;
+    padding: 10px;
+    font-size: 12px;
+}
+.dropdown {
+    display: inline-block;
+    position: relative
+}
+.dropdown-content {
+    position: absolute;
+    background-color: lightgrey;
+    min-width: 200px;
+    display: none;
+    z-index: 1;
+}
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+/*.dropdown-content a:hover {
+    background-color: orange;
+}
+*/.dropdown:hover .dropdown-content {
+    display: block;
+}
+/*
+.dropdown:hover .dropbtn {
+    background-color: grey;
+}*/

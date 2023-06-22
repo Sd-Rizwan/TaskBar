@@ -1,0 +1,32 @@
+{% extends 'dashboard.html' %}
+{% block addcss %}
+    <link rel="stylesheet" href="{{url_for('static',filename='registration.css')}}">
+{% endblock %}
+
+{% block content %}
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <center><b>{{ message }}</b></center>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+    <div class="container">
+        <h1>Employee Registration</h1>
+        <form method="POST">
+            <label for="name">Username</label>
+            <input type="text" id="empname" name="empname" placeholder="Enter employee name" required>
+            <label for="name">Department</label>
+            <input type="text" id="empdept" name="empdept" placeholder="Enter employee dept" required>
+            <label for="email">Email</label>
+            <input type="email" id="empmail" name="empmail" placeholder="Enter employee mail id" required>
+            <label for="password">Password</label>
+            <input type="password" id="emppassword" name="emppassword" placeholder="Enter employee password" required>
+            <input type="submit">
+        </form>
+    </div>
+{% endblock %}

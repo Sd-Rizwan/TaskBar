@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='login.css') }}"">
+  <style>
+    body{
+      background-color: aqua;
+      background-image: linear-gradient(rgb(63, 134, 141), rgb(221, 46, 218));
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+      <center><b>{{ message }}</b></center>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    <h1>Employee Login</h1>
+    <form method="POST">
+      <label for="email"><b>Email</b></label>
+      <input type="email" id="empmail" name="empmail" placeholder="Enter your mail" required>
+      <label for="password"><b>Password</b></label>
+      <input type="password" id="emppassword" name="emppassword" placeholder="Enter your password" required>
+      <br><a href="{{ url_for('forgot') }}">Forget password?</a><br>
+      <input type="submit">
+    </form>
+  </div>
+  <script>
+    function clearAllInputs(event) {
+    var allInputs = document.querySelectorAll('input');
+  
+    setTimeout(function() {
+      allInputs.forEach(singleInput => singleInput.value = '');
+    }, 10000);
+    }
+    </script>
+</body>
+</html>

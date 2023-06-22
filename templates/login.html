@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='login.css') }}">
+</head>
+
+<body>
+  <div class="container">
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+      <center><b>{{ message }}</b></center>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    <h1>Admin Login</h1>
+    <form method="POST">
+      <label for="email"><b>Email</b></label>
+      <input type="email" id="email" name="email" placeholder="Enter your mail" required>
+      <label for="password"><b>Password</b></label>
+      <input type="password" id="password" name="password" placeholder="Enter your password" required>
+      <br><a href="{{ url_for('forgot') }}">Forget password?</a>
+      <br><i>Doesn't have an account?<a href="{{ url_for('admin_registration') }}">Sign Up</a></i>
+      <input type="submit" onclick="clearAllInputs()">
+    </form>
+  </div>
+  <script>
+
+  function clearAllInputs(event) {
+  var allInputs = document.querySelectorAll('input');
+  setTimeout(function() {
+    allInputs.forEach(singleInput => singleInput.value = '');
+  }, 10000);
+
+  }
+
+  </script>
+</body>
+</html>

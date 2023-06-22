@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='title.css') }}">
+    <style>
+        body{
+          background-color: rgb(116, 142, 142);
+          background-image: url('https://wallpaperaccess.com/full/5137774.jpg');
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-position: center;
+        }
+      </style>
+    <title>Task Management</title>
+</head>
+<body>
+    <div class="title">
+        <center><h1>Tasking Bar</h1></center>
+    </div>
+    <div style="text-align: center;" class="title">
+        <a href="{{ url_for('admin_registration') }}"><button class="btnstyle">Admin Register</button></a>
+        <a href="{{ url_for('admin_login') }}"><button class="btnstyle">Admin Login</button></a>
+        <a href="{{ url_for('emplogin') }}"><button class="btnstyle">Employee Login</button></a>
+    </div>
+</body>
+</html>

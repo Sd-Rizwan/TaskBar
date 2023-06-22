@@ -1,0 +1,70 @@
+.container {
+    height: 400px;
+    max-width: 300px;
+    margin: 0 auto;
+    margin-top: 100px;
+    padding: 55px;
+    background-color: #20a4dd;
+    border: 10px solid #cccccc;
+    border-radius: 30px;
+  }
+
+  body{
+    background-image: url('https://images.pexels.com/photos/5011647/pexels-photo-5011647.jpeg?auto=compress&cs=tinysrgb&w=600');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+  }
+
+  i{
+    padding-bottom: 10px;
+  }
+
+  a{
+    text-align: left;
+    padding-bottom: 0px;
+    color:rgb(42, 4, 255);
+  }
+  
+  h1 {
+    text-align: center;
+    padding-bottom: 20px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    margin-bottom: 10px;
+    color: rgb(0, 0, 0);
+  }
+
+  input[type="email"],
+  input[type="email"] {
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  input[type="text"],
+  input[type="password"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  input[type="submit"] {
+    padding: 10px;
+    background-image: linear-gradient(rgb(92, 76, 76), rgb(123, 101, 5));
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #2410dc;
+  }

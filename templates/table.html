@@ -1,0 +1,93 @@
+{% extends 'dashboard.html' %}
+{% block addcss %}
+    <link rel="stylesheet" href="{{url_for('static',filename='table.css')}}">
+{% endblock %}
+{% block content %}
+
+{% if session['admin'] %}
+
+{% if data=='empty' %}
+<b>No results found</b>
+{% else %}
+<div class="container">
+    <h1 style="padding: 15px;"><center><u>Tasks</u></center></h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Task ID</th>
+                <th>Title</th>
+                <th>Duedate</th>
+                <th>Content</th>
+                <th>Assigned To</th>
+                <th>Assigned By</th>
+                <th>Task Status</th>
+                <th colspan="2">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for task in tasks %}
+            <tr>
+                <td>{{ task[0] }}</td>
+                <td>{{ task[1] }}</td>
+                <td>{{ task[2] }}</td>
+                <td>{{ task[3] }}</td>
+                <td>{{ task[4] }}</td>
+                <td>{{ task[5] }}</td>
+                <td>{{ task[6] }}</td>
+                <td><a href="{{ url_for('updatetask', taskid=task[0]) }}">Update</a></td>
+                <td><a href="{{ url_for('deletetask', taskid=task[0]) }}">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endif %}
+{% else %}
+
+<div class="container">
+    <h2 style="padding: 15px;">Tasks</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Task ID</th>
+                <th>Title</th>
+                <th>Duedate</th>
+                <th>Content</th>
+                <th>Assigned To</th>
+                <th>Assigned By</th>
+                <th>Status</th>
+                <th>Submit</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for task in tasks %}
+            <tr>
+                <td>{{ task[0] }}</td>
+                <td>{{ task[1] }}</td>
+                <td>{{ task[2] }}</td>
+                <td>{{ task[3] }}</td>
+                <td>{{ task[4] }}</td>
+                <td>{{ task[5] }}</td>
+                <form method="POST" action="{{ url_for('submit', taskid=task[0]) }}">
+                    <td>
+                        <p>{{ task[6] }}</p>
+                        <input type="radio" id="stat" name="stat" value="Not Started">
+                        <label for="stat">Not Started</label><br>
+                        <input type="radio" id="stat" name="stat" value="In Progress">
+                        <label for="stat">In Progress</label><br>
+                        <input type="radio" id="stat" name="stat" value="On Hold">
+                        <label for="stat">On Hold</label><br>
+                        <input type="radio" id="stat" name="stat" value="Completed">
+                        <label for="stat">Completed</label>
+                    </td>
+                    <td><button type="submit">Submit</button></td>
+                </form>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endif %}
+{% endblock %}

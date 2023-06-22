@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='dashboard.css') }}">
+    {% block addcss %}{% endblock %}
+    <style>
+        .navbar .form-inline {
+            display: flex;
+            justify-content: flex-end;
+        }
+        img{
+            border-radius: 50%;
+            padding-left: 50px;
+        }
+    </style>
+</head>
+<body>
+    {% if session['admin'] %}
+    <div class="sidenav">
+            <img src="https://us.123rf.com/450wm/wikagraphic/wikagraphic2101/wikagraphic210101140/163277144-initial-letter-tb-logotype-company-name-colored-gold-and-silver-swoosh-design-isolated-on-black.jpg?ver=6" alt="Logo" width="160" height="160">
+            <div>
+                <a href="/dashboard" style="text-align: center;">Dashboard</a>
+                <a href="{{ url_for('empregister') }}" style="text-align: center;">Add Employee</a>
+                <a href="{{ url_for('addtask') }}" style="text-align: center;">Add Task</a>
+            </div>
+    </div>
+    {% else %}
+    <div class="sidenav">
+        <img src="https://us.123rf.com/450wm/wikagraphic/wikagraphic2101/wikagraphic210101140/163277144-initial-letter-tb-logotype-company-name-colored-gold-and-silver-swoosh-design-isolated-on-black.jpg?ver=6" alt="Logo" width="160" height="160">
+        <div>
+            <a href="/dashboard" style="text-align: center;">Dashboard</a>
+        </div>
+    </div>
+    {% endif %}
+    <div class="main">
+    <div class="topnav">
+        <a href="{{ url_for('logout') }}">Logout</a>
+        <b>Welcome,&nbsp; {{ session.get('name') }}</b>
+    </div>
+
+    {% block content %} {% endblock %}
+    </div>
+    
+    <!-- Add Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

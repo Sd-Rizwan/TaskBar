@@ -1,0 +1,68 @@
+.container {
+    height: auto;
+    max-width: 325px;
+    margin: 0 auto;
+    margin-top: 100px;
+    padding: 40px;
+    background-color: rgb(220, 220, 189);
+    border: 10px solid silver;
+    border-radius: 30px;
+  }
+
+  body {
+    background-image: url('https://cdn.pixabay.com/photo/2017/05/11/11/15/workplace-2303851_640.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+}
+
+  h1 {
+    text-align: center;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    margin-bottom: 10px;
+  }
+
+  input[type="name"],
+  input[type="name"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+
+  input[type="email"],
+  input[type="email"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  input[type="text"],
+  input[type="password"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  input[type="submit"] {
+    padding: 10px;
+    background-image: linear-gradient(rgb(0, 89, 255), rgb(147, 57, 130));
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #2410dc;
+  }
+  

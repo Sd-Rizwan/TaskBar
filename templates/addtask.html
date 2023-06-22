@@ -1,0 +1,31 @@
+{% extends 'dashboard.html' %}
+{% block addcss %}
+    <link rel="stylesheet" href="{{url_for('static',filename='task.css')}}">
+{% endblock %}
+{% block content %}
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <center><b>{{ message }}</b></center>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+
+  <div class="container">
+    <h1>Add Task</h1>
+    <form method="POST">
+      <label for="taskid"><b>TaskID:</b></label>
+      <input type="number" id="taskid" name="taskid" placeholder="Enter the TaskID" required><br>
+      <label for="title"><b>Title:</b></label>
+      <input type="text" id="title" name="title" placeholder="Enter task title" required><br>
+      <label for="duedate"><b>Due Date:</b></label>
+      <input type="date" id="duedate" name="duedate" placeholder="Enter due date" required><br>
+      <label for="assign"><b>Employee to be assigned:</b></label>
+      <input type="email" id="assign" name="assign" placeholder="Enter the employee" required><br>
+      <label for="content"><b>Task Description:</b></label>
+      <input type="text" id="content" name="content" placeholder="Enter description" required><br>
+      <input type="submit">
+    </form>
+  </div>
+{% endblock %}

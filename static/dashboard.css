@@ -1,0 +1,85 @@
+.sidenav {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 10px 25px 10px;
+  text-decoration: none;
+  font-size: 19px;
+  color: #44dbdd;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #1794e2;
+}
+
+.topnav {
+  padding: 0px 0px 0px 240px;
+  overflow: hidden;
+  background-color: #111;
+}
+
+.topnav b {
+  float: right;
+  color: #d17926;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 19px;
+}
+
+.topnav a {
+  float: right;
+  color: #c8c2c2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 19px;
+}
+
+.topnav a:hover {
+  background-color: #111;
+  color: rgb(242, 132, 6);
+}
+
+.main {
+  margin-left: 242px; /* Same as the width of the sidenav */
+  margin-top: auto;
+}
+
+.container thead {
+  background-color: #111;
+}
+
+.container th{
+  padding: 20px 40px;
+  color: white;
+}
+
+.container td{
+  padding: 15px 40px;
+  color: #111;
+  background-color: beige;
+}
+
+body{
+  background-image: url('https://images.pexels.com/photos/82256/pexels-photo-82256.jpeg?auto=compress&cs=tinysrgb&w=600 ');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: 100% 100%;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 10px;}
+  .sidenav a {font-size: 18px;}
+}
