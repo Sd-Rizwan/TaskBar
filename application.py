@@ -5,12 +5,24 @@ from key import secret_key,salt1,salt2
 from tokens import token
 from cmail import sendmail
 import mysql.connector
+import os
 app=Flask(__name__)
 app.secret_key=secret_key
 app.config['SESSION_TYPE']='filesystem'
 app.config['MESSAGE_FLASHING_OPTIONS'] = {'duration': 2}
 Session(app)
-mydb=mysql.connector.connect(host='localhost', user='root', password='Shanu@1234', db='project')
+#mydb=mysql.connector.connect(host='localhost', user='root', password='Shanu@1234', db='project')
+db= os.environ['RDS_DB_NAME']
+user=os.environ['RDS_USERNAME']
+password=os.environ['RDS_PASSWORD']
+host=os.environ['RDS_HOSTNAME']
+port=os.environ['RDS_PORT']
+with mysql.connector.connect(host=host,user=user,password=password,db=db) as conn:
+    cursor=conn.cursor(buffered=True)
+    cursor.execute('create table if not exists admin(username varchar(30) unique,email varchar(50) primary key,password varchar(30),email_status enum("verified","not verified"))')
+    cursor.execute('create table if not exists employee(empname varchar(30),empdept varchar(15),empmail varchar(50) primary key,emppassword varchar(20),added_by varchar(50),FOREIGN KEY (added_by) REFERENCES admin(email))')
+    cursor.execute('create table if not exists tasks(taskid int primary key,title varchar(25),duedate date,content text,empmail varchar(50),assigned by varchar(50),status varchar(20),FOREIGN KEY (empmail) REFERENCES employee(empmail),FOREIGN KEY (assigned_by) REFERENCES admin(email))')
+mydb=mysql.connector.connect(host=host,user=user,password=password,db=db)
 
 @app.route('/')
 def title():
@@ -375,4 +387,5 @@ def submit(taskid):
             return redirect(url_for('submit',taskid=taskid))
     return redirect(url_for('dashboard'))
 
-app.run(debug=True,use_reloader=True)
+if __name__=="__main__":
+    app.run()
