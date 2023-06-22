@@ -21,7 +21,7 @@ with mysql.connector.connect(host=host,user=user,password=password,db=db) as con
     cursor=conn.cursor(buffered=True)
     cursor.execute('create table if not exists admin(username varchar(30) unique,email varchar(50) primary key,password varchar(30),email_status enum("verified","not verified"))')
     cursor.execute('create table if not exists employee(empname varchar(30),empdept varchar(15),empmail varchar(50) primary key,emppassword varchar(20),added_by varchar(50),FOREIGN KEY (added_by) REFERENCES admin(email))')
-    cursor.execute('create table if not exists tasks(taskid int primary key,title varchar(25),duedate date,content text,empmail varchar(50),assigned by varchar(50),status varchar(20),FOREIGN KEY (empmail) REFERENCES employee(empmail),FOREIGN KEY (assigned_by) REFERENCES admin(email))')
+    cursor.execute('create table if not exists tasks(taskid int primary key,title varchar(25),duedate date,content text,empmail varchar(50),assigned_by varchar(50),status varchar(20),FOREIGN KEY (empmail) REFERENCES employee(empmail),FOREIGN KEY (assigned_by) REFERENCES admin(email))')
 mydb=mysql.connector.connect(host=host,user=user,password=password,db=db)
 
 @app.route('/')
